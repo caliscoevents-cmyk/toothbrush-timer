@@ -1,0 +1,61 @@
+
+/* css/style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #e0f7fa; /* Bleu clair enfantin */
+    padding-top: 20px;
+}
+
+h1 {
+    color: #00796b;
+}
+
+#timer {
+    font-size: 4em;
+    color: #004d40;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#game-area {
+    min-height: 300px;
+    background-color: #ffffff;
+    border: 8px solid #00acc1;
+    border-radius: 20px;
+    margin: 20px auto;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #ffb300;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px #e65100;
+    transition: background-color 0.1s;
+}
+
+#start-button:hover {
+    background-color: #ffc107;
+}
+
+#rewards-display {
+    font-size: 1.8em;
+    padding: 20px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* TODO: [LLM] Ajouter @keyframes pour les animations des bulles. */
+@keyframes float {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+    100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
+}
+

@@ -1,0 +1,28 @@
+# .github/workflows/tests.yml
+name: Tests Unitaires
+
+on: [push, pull_request]
+
+jobs:
+ test:
+   runs-on: ubuntu-latest
+
+   steps:
+   - name: Checkout Code
+     uses: actions/checkout@v4
+
+   - name: Set up Node.js
+     uses: actions/setup-node@v4
+     with:
+       node-version: '20'
+
+   # Installation de Jest dans le dossier tests/
+   - name: Installer les dépendances de test
+     run: |
+       cd tests
+       npm init -y # Initialise package.json pour les dépendances
+       npm install jest
+
+   - name: Exécuter les tests unitaires
+     # Lance Jest depuis le dossier racine en spécifiant le répertoire de tests
+     run: npx jest tests/

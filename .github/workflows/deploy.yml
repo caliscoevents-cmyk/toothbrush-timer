@@ -1,0 +1,43 @@
+# .github/workflows/deploy.yml
+name: Déploiement Statique et Secours
+
+on:
+ push:
+   branches: [main] # Se déclenche sur le push vers la branche principale
+
+jobs:
+ deploy:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout Code
+     uses: actions/checkout@v4
+
+   - name: Déployer sur GitHub Pages
+     uses: peaceiris/actions-gh-pages@v3
+     with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       publish_dir: .
+       publish_branch: gh-pages # Déploie la racine du dépôt sur la branche gh-pages
+
+ fallback:
+   # Déclenchement conditionnel: Si l'action de déploiement échoue
+   needs: deploy
+   if: failure()
+   runs-on: ubuntu-latest
+
+   steps:
+   - name: Checkout Code
+     uses: actions/checkout@v4
+
+   - name: Set up Python
+     uses: actions/setup-python@v4
+     with:
+       python-version: '3.x'
+
+   - name: Installer les dépendances Python
+     run: pip install requests
+
+   - name: Exécuter le Script Python de Secours (Fallback LLM)
+     env:
+       HUGGING_FACE_TOKEN: ${{ secrets.HUGGING_FACE_TOKEN }}
+     run: python3 scripts/fallback_llm.py
