@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/caliscoevents-cmyk/toothbrush-timer#readme",
   "devDependencies": {
-    "jest": "^30.2.0"
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0"
   }
 }
