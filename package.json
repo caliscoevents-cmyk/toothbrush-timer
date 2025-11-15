@@ -1,0 +1,27 @@
+{
+  "name": "toothbrush-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caliscoevents-cmyk/toothbrush-timer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/caliscoevents-cmyk/toothbrush-timer/issues"
+  },
+  "homepage": "https://github.com/caliscoevents-cmyk/toothbrush-timer#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
