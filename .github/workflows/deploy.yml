@@ -8,6 +8,10 @@ on:
 jobs:
  deploy:
    runs-on: ubuntu-latest
+   permissions:
+     contents: write # Cette ligne corrige l'erreur 403 / Permission Denied
+     pages: write     # Bonne pratique pour GitHub Pages
+     id-token: write  # Souvent requis pour les Actions
    steps:
    - name: Checkout Code
      uses: actions/checkout@v4
